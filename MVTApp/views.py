@@ -72,6 +72,3 @@ def fam(request):
    return HttpResponse(doc)
 
 
-#////# 
-
-print('HOLAa')
