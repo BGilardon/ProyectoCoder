@@ -21,23 +21,23 @@ def prueba(self):
    return HttpResponse(doc)
 
 
-# def fam(request):
+def fam(request):
 
-#    with open(r"C:\Users\bauti\OneDrive\Escritorio\Code\Django\MVT Bautista Gilardon\MVT\MVT\plantillas\template2.html") as miHtml:
-#       plantilla=Template(miHtml.read())
+   with open(r"C:\Users\bauti\OneDrive\Escritorio\Code\Django\MVT Bautista Gilardon\MVT\MVT\plantillas\template2.html") as miHtml:
+      plantilla=Template(miHtml.read())
    
-#    l_nombre = [x.nombre for x in Familiar.objects.all()]
-#    l_edad = [x.edad for x in Familiar.objects.all()]
-#    l_fecha = [x.FechDeNac for x in Familiar.objects.all()]
-#    indice = range(len(l_nombre))
+   l_nombre = [x.nombre for x in Familiar.objects.all()]
+   l_edad = [x.edad for x in Familiar.objects.all()]
+   l_fecha = [x.FechDeNac for x in Familiar.objects.all()]
+   indice = range(len(l_nombre))
 
-#    dic = {'miNombre':'Bautista', 'miEdad':20,'l_nombres':l_nombre, 'l_edad':l_edad, 'l_fecha':l_fecha, 'indice':indice}
+   dic = {'miNombre':'Bautista', 'miEdad':20,'l_nombres':l_nombre, 'l_edad':l_edad, 'l_fecha':l_fecha, 'indice':indice}
 
-#    miContexto=Context(dic)
+   miContexto=Context(dic)
    
-#    doc=plantilla.render(miContexto)
+   doc=plantilla.render(miContexto)
    
-#    return HttpResponse(doc)
+   return HttpResponse(doc)
 
 def fam(request):
    
