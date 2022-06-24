@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block Contenido %}
+
+    <form action="" method="POST">{% csrf_token %}
+        <p> Nombre: <input type="text" name="Nombre"></p>
+        
+        <p> Edad: <input type= "number" name="Edad"></p>
+
+        <p> Fecha: <input type= "date" name="Fecha"></p>
+        
+        <input type="submit" value="Enviar">
+    </form>
+
+
+{% endblock %}

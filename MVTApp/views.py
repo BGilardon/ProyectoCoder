@@ -20,56 +20,30 @@ def prueba(self):
    
    return HttpResponse(doc)
 
-def Fam(request):
-     familiares = Familiar()
-     l_nombre = [x.nombre for x in Familiar.objects.all()]
-     l_edad = [x.edad for x in Familiar.objects.all()]
-     l_fecha = [x.FechDeNac for x in Familiar.objects.all()]
 
-     Html=f'''
-     <html>
-     <body>
-        <p> Nombres: {str(l_nombre)} </p>
-        <p> Edades:  {str(l_edad)} </p>
-        <p> Fecha de nacimiento: {l_fecha} </p>
+# def fam(request):
 
-     </body>
-     </html>
-     '''
-     def lista():
-          for i in range(len(l_nombre)):
-               nombre = l_nombre[i]
-               edad = l_edad[i]
-               fecha = l_fecha[i]
-               return f'nombre: {nombre}, edad: {edad}, FechaDeNacimiento: {fecha}'
+#    with open(r"C:\Users\bauti\OneDrive\Escritorio\Code\Django\MVT Bautista Gilardon\MVT\MVT\plantillas\template2.html") as miHtml:
+#       plantilla=Template(miHtml.read())
+   
+#    l_nombre = [x.nombre for x in Familiar.objects.all()]
+#    l_edad = [x.edad for x in Familiar.objects.all()]
+#    l_fecha = [x.FechDeNac for x in Familiar.objects.all()]
+#    indice = range(len(l_nombre))
 
-     Html2 = f'''
-     <html>
-     <body>
-        <p> Nombres: {lista()} </p>
-     </body>
-     </html>
-     '''
+#    dic = {'miNombre':'Bautista', 'miEdad':20,'l_nombres':l_nombre, 'l_edad':l_edad, 'l_fecha':l_fecha, 'indice':indice}
 
-     return HttpResponse(Html)
+#    miContexto=Context(dic)
+   
+#    doc=plantilla.render(miContexto)
+   
+#    return HttpResponse(doc)
 
 def fam(request):
-
-   with open(r"C:\Users\bauti\OneDrive\Escritorio\Coder\Django\MVT Bautista Gilardon\MVT\MVT\plantillas\template2.html") as miHtml:
-      plantilla=Template(miHtml.read())
    
-   l_nombre = [x.nombre for x in Familiar.objects.all()]
-   l_edad = [x.edad for x in Familiar.objects.all()]
-   l_fecha = [x.FechDeNac for x in Familiar.objects.all()]
-   indice = range(len(l_nombre))
+   familiar = Familiar.objects.all()
 
-   dic = {'miNombre':'Bautista', 'miEdad':20,'l_nombres':l_nombre, 'l_edad':l_edad, 'l_fecha':l_fecha, 'indice':indice}
-
-   miContexto=Context(dic)
-   
-   doc=plantilla.render(miContexto)
-   
-   return HttpResponse(doc)
+   return render(request, 'template2.html',{'familiar': familiar})
 
 
 def inicio(request):
@@ -77,4 +51,17 @@ def inicio(request):
 
    return render(request, 'index.html')
 
+def CrearFamiliar(request):
+   
+   if request.method == 'POST':
+
+      familiar = Familiar(
+         nombre=request.POST['Nombre'], 
+         edad=request.POST['Edad'], 
+         FechDeNac=request.POST['Fecha'])
+
+      familiar.save()
+
+   
+   return render(request, 'CrearFamiliar.html')
 

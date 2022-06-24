@@ -8,3 +8,4 @@ class Familiar(models.Model):
     nombre      = models.CharField(max_length=40)
     edad        = models.IntegerField()
     FechDeNac   = models.DateField()
+

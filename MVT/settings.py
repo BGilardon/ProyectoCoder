@@ -56,7 +56,7 @@ ROOT_URLCONF = 'MVT.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r'C:\Users\bauti\OneDrive\Escritorio\Coder\Django\MVT Bautista Gilardon\MVT\MVT\plantillas'],
+        'DIRS': [r'C:\Users\bauti\OneDrive\Escritorio\Code\Django\MVT Bautista Gilardon\MVT\MVT\plantillas'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

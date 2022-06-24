@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body style="font-family:verdana;">
-    <h1>PRIMER PAGINA WEB </h1>
-    <p style="font-size:135%">Parientes de primer grado de {{miNombre}}({{miEdad}})</p>
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block COntenido %}
 
     <table style="width:100%">
         <tr style="font-size:125%">
@@ -16,22 +10,14 @@
             <td><b>Edad</b></td>
             <td><b>Fecha de Nacimiento</b></td>
         </tr>
+        {% for fam in familiar %}
         <tr>
-            <td>{{l_nombres.0}}</td>
-            <td>{{l_edad.0}}</td>
-            <td>{{l_fecha.0}}</td>
+            <td>{{fam.nombre}}</td>
+            <td>{{fam.edad}}</td>
+            <td>{{fam.FechDeNac}}</td>
         </tr>
-        <tr>
-            <td>{{l_nombres.1}}</td>
-            <td>{{l_edad.1}}</td>
-            <td>{{l_fecha.1}}</td>
-        </tr>
-        <tr>
-            <td>{{l_nombres.2}}</td>
-            <td>{{l_edad.2}}</td>
-            <td>{{l_fecha.2}}</td>
-        </tr>
+    {% endfor %}
     </table>
 
-</body>
-</html>
+
+{% endblock %}

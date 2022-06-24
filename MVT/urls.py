@@ -19,7 +19,8 @@ from MVTApp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('fam/', fam),
-    path('', inicio)
+    path('fam/', fam, name='Familia'),
+    path('', inicio, name= 'Inicio'),
+    path('CrearFamiliar/', CrearFamiliar, name= 'CrearFamiliar' ),
 
 ]
